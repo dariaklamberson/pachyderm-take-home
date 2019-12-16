@@ -1,6 +1,7 @@
 var path = require('path');
 
 module.exports = {
+  mode: 'development',
   entry: './frontend/index.js',
   devtool: 'inline-source-map',
   output: {
@@ -20,7 +21,7 @@ module.exports = {
   */
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components|build)/,
