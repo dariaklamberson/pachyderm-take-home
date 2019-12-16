@@ -62,11 +62,11 @@ The application should be styled in a user friendly way and use the following co
 
 | Color     |
 | --------- |
-| `#c36d69` |
-| `#533868` |
-| `#c4c3c4` |
-| `#a498a6` |
-| `#fe9b7c` |
+|![#c4c3c4](https://placehold.it/15/c4c3c4/000000?text=+) `#c4c3c4` |
+|![#a498a6](https://placehold.it/15/a498a6/000000?text=+) `#a498a6` |
+|![#fe9b7c](https://placehold.it/15/fe9b7c/000000?text=+) `#fe9b7c` |
+|![#c36d69](https://placehold.it/15/c36d69/000000?text=+) `#c36d69` |
+|![#533868](https://placehold.it/15/533868/000000?text=+) `#533868` |
 
 #### Other considerations
 
