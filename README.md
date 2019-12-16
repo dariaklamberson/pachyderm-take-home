@@ -48,13 +48,25 @@ The static files served by the backend contains:
 * markdown (`.md`)
 * images (`.jpg`, `.png`)
 * plaintext (`.txt`)
-* javascript code (`.js`)
+* javascript code (`.js`
 * binary (`.bin`)
 * video (`.mp4`)
 
 #### File metadata
 
 The 'Details' button for a file in the directory tree should open up a [modal](wireframe_modal.png) showing the file metadata fetched from the directory entry on the backend.
+
+#### Style
+
+The application should be styled in a user friendly way and use the following color guide:
+
+| Color     |
+| --------- |
+| `#c36d69` |
+| `#533868` |
+| `#c4c3c4` |
+| `#a498a6` |
+| `#fe9b7c` |
 
 #### Other considerations
 
