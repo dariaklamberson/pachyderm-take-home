@@ -24,8 +24,8 @@ const statsToFileData = (name, stats) => {
     Object.assign(result, {
       type: 'file',
       size: stats.size,
-      created: stats.birthtime,
-      modified: stats.mtime,
+      created: stats.birthtimeMs,
+      modified: stats.mtimeMs,
     });
   }
 
