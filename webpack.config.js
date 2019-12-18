@@ -10,16 +10,6 @@ module.exports = {
     libraryTarget: 'umd'
   },
 
-  /*
-  devServer: {
-    contentBase: path.resolve(__dirname),
-    compress: true,
-    port: 9000,
-    host: 'localhost',
-    open: true
-  },
-  */
-
   module: {
     rules: [
       {
