@@ -46,9 +46,9 @@ When a file has been selected, its contents should be shown in the panel on the 
 The static files served by the backend contains:
 
 * markdown (`.md`)
-* images (`.jpg`, `.png`)
+* images (`.jpg`, `.png`, `.gif`, `.svg`)
 * plaintext (`.txt`)
-* javascript code (`.js`
+* code (`.js`, `.go`)
 * binary (`.bin`)
 * video (`.mp4`)
 
