@@ -19,7 +19,7 @@ To get started:
 * Fork this repository so you can make changes.
 * Check out one of the prepared branches with your framework of choice (e.g. `git checkout react`), or install your own framework.
 * Run `npm install` to download the dependencies.
-* Run `npm serve` to run the backend server and serve frontend assets.
+* Run `npm run serve` to run the backend server and serve frontend assets.
 * Direct your browser to `localhost:8080` to view the frontend.
 
 
