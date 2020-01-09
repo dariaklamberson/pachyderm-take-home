@@ -7,11 +7,11 @@ class Directory extends React.Component {
         this.onExpandDir = this.onExpandDir.bind(this);
         this.state = {
             expandedDirs: {},
+            // this should also have an expanded bool
         }
     }
 
     renderEntry(dir) {
-        debugger;
         return (
             <Directory
                 tree={this.state.expandedDirs[dir.name]}
@@ -20,14 +20,13 @@ class Directory extends React.Component {
     }
 
     renderDir(dir) {
-        debugger;
         if (this.state.expandedDirs[dir.name]) {
             return this.renderEntry(dir)
         } else {
             return (
                 <React.Fragment>
                     <div>{dir.name}</div>
-                    <button onClick={this.onExpandDir.bind(dir)}>Expand</button>
+                    <button onClick={() => this.onExpandDir(dir)}>Expand</button>
                 </React.Fragment>
             )
         }
@@ -39,9 +38,11 @@ class Directory extends React.Component {
         debugger;
         const expanded = Promise.resolve(readDir(fullPath)
             .then(contents => {
-                console.log(contents)
-                this.setState(prevState => {
-                    expandedDirs: update(prevState.expandedDirs, {dirName: contents})
+                const { expandedDirs } = this.state;
+                expandedDirs[dirName] = contents;
+                console.log(expandedDirs)
+                this.setState({
+                    expandedDirs,
                 })
             })
         )
@@ -56,12 +57,17 @@ class Directory extends React.Component {
 
         return (
             <React.Fragment>
+                {/* Leaving a note here -- we should render the dir either way, so would break that out */}
                 {tree.entries ? tree.entries.map(contents => {
                     if (contents.type == 'dir') {
                         return this.renderDir(contents);
                     } else {
+                        debugger;
                         return (
-                            <File data={file} />
+                            <React.Fragment>
+                                <div>{contents.name}</div>
+                                {/* // <File data={contents} /> */}
+                            </React.Fragment>
                         )
                     }
                 }) : this.renderDir()}

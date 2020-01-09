@@ -1,5 +1,5 @@
 import React from 'react';
-import Directory from '../components/Main';
+import Directory from '../components/Directory';
 import { readDir } from '../helpers';
 
 class App extends React.Component {
@@ -25,7 +25,7 @@ class App extends React.Component {
     // Note: level prop would be used for indentation from left in styling
     return (
         <Directory
-          fileTree={this.state.fileTree}
+          tree={this.state.fileTree}
           level={0}  
         />
     );
