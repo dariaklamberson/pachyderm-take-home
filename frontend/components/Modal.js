@@ -1,0 +1,1 @@
+// Component for showing file details

@@ -2,7 +2,7 @@ import React from 'react';
 
 class Directory extends React.Component {
     onShowDetails() {
-
+        // this is where we'd show details on the right
     }
 
     render() {
@@ -17,14 +17,6 @@ class Directory extends React.Component {
                 <div>{data.name}</div>
             </React.Fragment>
         )
-        
-        // interface Entry {
-        //     name: String,
-        //     type: 'dir' | 'file',
-        //     size: Number,
-        //     created: Date,
-        //     modified: Date,
-        // }
     }
 }
 

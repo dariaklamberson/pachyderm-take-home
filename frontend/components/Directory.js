@@ -34,18 +34,17 @@ class Directory extends React.Component {
     }
 
     onExpandDir(dir) {
-        const fullPath = `${this.props.tree.path}/${dir.name}`;
+        const dirName = dir.name;
+        const fullPath = `${this.props.tree.path}/${dirName}`;
         debugger;
         const expanded = Promise.resolve(readDir(fullPath)
             .then(contents => {
                 console.log(contents)
                 this.setState(prevState => {
-                    expandedDirs: [
-                        { dir.name: contents },
-                        ...prevState.expandedDirs]
+                    expandedDirs: update(prevState.expandedDirs, {dirName: contents})
                 })
-            }))
-        
+            })
+        )
     }
 
     render() {
@@ -61,7 +60,6 @@ class Directory extends React.Component {
                     if (contents.type == 'dir') {
                         return this.renderDir(contents);
                     } else {
-                        // this should be an entry
                         return (
                             <File data={file} />
                         )
@@ -69,14 +67,6 @@ class Directory extends React.Component {
                 }) : this.renderDir()}
             </React.Fragment>
         )
-        
-        // interface Entry {
-        //     name: String,
-        //     type: 'dir' | 'file',
-        //     size: Number,
-        //     created: Date,
-        //     modified: Date,
-        // }
 
         // if (pending)
         //     return (
