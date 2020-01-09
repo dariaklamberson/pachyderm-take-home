@@ -10,6 +10,10 @@ module.exports = {
     libraryTarget: 'umd'
   },
 
+  node: {
+    fs: "empty"
+  },
+
   module: {
     rules: [
       {

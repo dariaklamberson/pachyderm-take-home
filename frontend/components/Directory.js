@@ -5,9 +5,19 @@ import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 import SingleFile from './SingleFile';
 
+const Container = styled.div`
+    padding-left: ${props => props.level * 20}px;
+    display: block;
+    height: 20px;
+`;
+
 const DirectoryDisplay = styled.div`
-  padding-left: ${props => props.level * 15}px;
-  display: block;
+    display: inline-block;
+`;
+
+const ButtonSpan = styled.span`
+    margin-right: 5px;
+    cursor: pointer;
 `;
 
 class Directory extends React.Component {
@@ -21,10 +31,12 @@ class Directory extends React.Component {
     }
 
     renderEntry(dir) {
+        const { level, showDocument } = this.props;
         return (
             <Directory
                 tree={this.state.expandedDirs[dir.name]}
-                level={this.props.level + 1}
+                level={level + 1}
+                showDocument={showDocument} 
             />
         )
     }
@@ -32,21 +44,29 @@ class Directory extends React.Component {
     renderButton(dir) {
         if (this.state.expanded[dir.name]) {
             return (
-                <button onClick={() => this.onCollapseDir(dir)}>Collapse</button>
+                <ButtonSpan
+                    className="fas fa-minus-square"
+                    onClick={() => this.onCollapseDir(dir)}
+                />
             )
         } else {
             return (
-                <button onClick={() => this.onExpandDir(dir)}>Expand</button>
+                <ButtonSpan
+                    className="fas fa-plus-square"
+                    onClick={() => this.onExpandDir(dir)}
+                />
             )
         }
     }
 
     renderDir(dir) {
         const dirDisplay = (
-            <DirectoryDisplay level={this.props.level}>
-                <div>{dir.name}</div>
+            <Container level={this.props.level}>
                 {this.renderButton(dir)}
-            </DirectoryDisplay>
+                <DirectoryDisplay>
+                    <div>{dir.name}</div>
+                </DirectoryDisplay>
+            </Container>
         )
         let entries;
         if (this.state.expandedDirs[dir.name] && this.state.expanded[dir.name]) {
@@ -89,8 +109,7 @@ class Directory extends React.Component {
     }
 
     render() {
-        const { tree, level } = this.props;
-        const { expanded } = this.state;
+        const { tree, level, showDocument } = this.props;
 
         if (!tree) {
             return null;
@@ -107,7 +126,9 @@ class Directory extends React.Component {
                         return (
                             <SingleFile
                                 data={contents}
-                                level={level + 1}
+                                level={level}
+                                path={tree.path}
+                                showDocument={showDocument}
                             />
                         )
                     }
