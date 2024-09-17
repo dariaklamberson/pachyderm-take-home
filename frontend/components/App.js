@@ -1,7 +1,35 @@
-import React from 'react'
+import React from 'react';
+import Directory from '../components/Directory';
+import { readDir } from '../helpers';
 
-const App = () => {
-  return <h3>Hello World!</h3>
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state ={
+      fileTree: undefined,
+    }
+  }
+
+  componentDidMount() {
+    // set initial state to top-level directory
+    readDir('')
+      .then(dir => {
+        console.log(dir)
+        this.setState({
+          fileTree: dir
+        })
+      })
+  }
+
+  render() {
+    // Note: level prop would be used for indentation from left in styling
+    return (
+        <Directory
+          tree={this.state.fileTree}
+          level={0}  
+        />
+    );
+  }
 }
 
-export default App
+export default App;
